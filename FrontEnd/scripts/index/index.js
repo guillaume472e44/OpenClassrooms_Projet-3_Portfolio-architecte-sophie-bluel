@@ -1,9 +1,9 @@
 import { getDatas } from "./API/APImanagement.js";
 import { createWork } from "./actions/createWork.js";
+import { createFilterBtn } from "./actions/createFilterBtn.js";
 
 // Ajout des travaux dans la gellerie
 getDatas("works").then((worksDatas) => populateGallery(worksDatas));
-
 function populateGallery(works) {
   const gallery = document.querySelector(".gallery");
   gallery.textContent = "";
@@ -16,4 +16,13 @@ function populateGallery(works) {
   } else {
     works.forEach((work) => createWork(work));
   }
+}
+
+// boutons filtres travaux
+getDatas("categories").then((categoriesDatas) =>
+  populateFilters(categoriesDatas),
+);
+function populateFilters(categories) {
+  const noFilterBtn = { id: 0, name: "Tous" }; // bouton "Tous"
+  [noFilterBtn, ...categories].forEach((category) => createFilterBtn(category));
 }

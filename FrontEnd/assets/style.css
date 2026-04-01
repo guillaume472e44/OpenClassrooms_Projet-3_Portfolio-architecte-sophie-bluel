@@ -307,6 +307,7 @@ footer nav ul {
   margin: 24px 96px 20px 0;
 }
 
+/* Affichage message d'erreur en cas de problème API */
 .errorInfo.active {
   color: crimson;
   font-size: 1.5rem;
@@ -315,9 +316,36 @@ footer nav ul {
   background-color: rgba(255, 255, 0, 0.25);
   border-radius: 99px;
 }
-
+/* Si aucuns travaux trouvés */
 .noResults {
   font-size: 2rem;
   grid-column: 1 / -1;
   font-style: italic;
+}
+
+/* Filters buttons */
+.filters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-block: 48px;
+  gap: 12px;
+}
+.filter__button {
+  border: 1px solid var(--mainColor);
+  border-radius: 99px;
+  background: none;
+  min-width: 100px;
+  padding-inline: 12px;
+  height: 36px;
+  font-family: Syne, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--mainColor);
+  cursor: pointer;
+}
+.filter__button:hover,
+.filter__button.active {
+  background: var(--mainColor);
+  color: #fff;
 }
