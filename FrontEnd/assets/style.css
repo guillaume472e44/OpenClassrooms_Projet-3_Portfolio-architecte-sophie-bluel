@@ -131,6 +131,7 @@ table {
 a {
   text-decoration: none;
   color: inherit;
+  cursor: pointer;
 }
 
 /** end reset css**/
@@ -198,6 +199,12 @@ nav li:not(:last-child) {
 li:hover {
   font-weight: 700;
 }
+.logoutBtn {
+  background: none;
+  cursor: pointer;
+  display: none;
+}
+
 #introduction {
   display: flex;
   align-items: center;
@@ -308,13 +315,17 @@ footer nav ul {
 }
 
 /* Affichage message d'erreur en cas de problème API */
-.errorInfo.active {
+.errorInfo__getData {
   color: crimson;
   font-size: 1.5rem;
   text-align: center;
   padding-block: 16px;
   background-color: rgba(255, 255, 0, 0.25);
   border-radius: 99px;
+  display: none;
+}
+.errorInfo__getData.active {
+  display: block;
 }
 /* Si aucuns travaux trouvés */
 .noResults {
@@ -348,4 +359,69 @@ footer nav ul {
 .filter__button.active {
   background: var(--mainColor);
   color: #fff;
+}
+
+/* Login */
+.login-form-container {
+  text-align: center;
+  margin-block-start: 80px;
+  width: 380px;
+  position: relative;
+}
+
+.login-form-container h2 {
+  font-size: 36px;
+  margin-block-end: 8px;
+}
+
+.login-form-container form {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  margin-block-end: 24px;
+}
+
+.login-form-container label {
+  margin-block-start: 32px;
+  margin-block-end: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.login-form-container input:not([type="submit"]) {
+  height: 48px;
+  font-size: 1.2em;
+  border: none;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+.forgetPassword {
+  background: none;
+  font-weight: 500;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.errorMsg {
+  color: crimson;
+  font-weight: 800;
+  font-size: larger;
+  width: fit-content;
+  margin-block-start: 32px;
+  margin-inline: auto;
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+}
+.errorMsg.active {
+  animation: typing 1s steps(60, end);
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
 }
