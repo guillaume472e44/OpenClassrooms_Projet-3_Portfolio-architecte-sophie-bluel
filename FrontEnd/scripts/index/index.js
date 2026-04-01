@@ -1,6 +1,7 @@
 import { getDatas } from "./API/APImanagement.js";
 import { createWork } from "./actions/createWork.js";
 import { createFilterBtn } from "./actions/createFilterBtn.js";
+export * from "./edit-mode/editMode.js";
 
 // Ajout des travaux dans la gellerie
 getDatas("works").then((worksDatas) => populateGallery(worksDatas));

@@ -202,13 +202,15 @@ li:hover {
 .logoutBtn {
   background: none;
   cursor: pointer;
+  width: 64px;
+  text-align: center;
   display: none;
 }
 
 #introduction {
   display: flex;
   align-items: center;
-  margin: 64px auto 112px;
+  margin: 64px auto 128px;
   width: 83%;
 }
 #introduction figure {
@@ -231,9 +233,12 @@ li:hover {
 #introduction p {
   margin-bottom: 1.5em;
 }
-#portfolio h2 {
+#portfolio {
   text-align: center;
-  margin-block: 1em;
+}
+#portfolio h2 {
+  margin-block-end: 1.5em;
+  display: inline-block;
 }
 .gallery {
   width: 83%;
@@ -241,13 +246,18 @@ li:hover {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 12px;
-  grid-row-gap: 32px;
+  grid-row-gap: 16px;
+  height: 100%;
 }
-
 .gallery img {
   width: 100%;
-  height: 100%;
   object-fit: cover;
+}
+.gallery figure {
+  text-align: start;
+}
+.gallery figcaption {
+  margin-block-start: 4px;
 }
 #contact {
   width: 33.33%;
@@ -339,7 +349,7 @@ footer nav ul {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-block: 48px;
+  margin-block-end: 48px;
   gap: 12px;
 }
 .filter__button {
@@ -414,7 +424,7 @@ footer nav ul {
   white-space: nowrap;
 }
 .errorMsg.active {
-  animation: typing 1s steps(60, end);
+  animation: typing 0.2s steps(120, end);
 }
 
 @keyframes typing {
@@ -424,4 +434,37 @@ footer nav ul {
   to {
     width: 100%;
   }
+}
+
+/* Edit mode */
+.editMode__banner {
+  background: #000;
+  width: 100%;
+  padding-block: 16px;
+  display: none;
+}
+
+.editMode__content {
+  color: white;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.modifier {
+  background: none;
+  color: black;
+  font-family: "Work Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  display: inline-flex;
+  gap: 8px;
+  margin-inline-start: 32px;
+  margin-block-end: 80px;
+  cursor: pointer;
+  display: none;
+}
+.modifier:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
