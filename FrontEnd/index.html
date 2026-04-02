@@ -61,10 +61,38 @@
       <section id="portfolio">
         <p class="errorInfo__getData"></p>
         <h2>Mes Projets</h2>
+
         <button class="modifier">
           <img src="./assets/icons/edit-black.svg" alt="modifier icon" />
           <span>modifier</span>
         </button>
+
+        <dialog id="edit-mode" closedby="any" autofocus>
+          <div class="dialog__wrapper">
+            <div class="dialog__header">
+              <button class="dialog__header__backBtn">
+                <img
+                  src="./assets/icons/left-arrow.svg"
+                  alt="retour à la gallerie de suppression"
+                />
+              </button>
+              <button class="dialog__header__closeBtn">
+                <img
+                  src="./assets/icons/cross.svg"
+                  alt="fermer la fenêtre modale"
+                />
+              </button>
+            </div>
+            <section class="dialog__section deletion-gallery">
+              <h3>Galerie photo</h3>
+              <div class="deletion-gallery__thumbnails"></div>
+            </section>
+            <div class="dialog__footer">
+              <button id="add-photo">Ajouter une photo</button>
+            </div>
+          </div>
+        </dialog>
+
         <div class="filters"></div>
         <div class="gallery">
           <!-- <figure>

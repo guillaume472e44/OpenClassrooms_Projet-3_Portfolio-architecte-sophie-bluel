@@ -1,4 +1,6 @@
 import { isAuthenticated } from "./isAuthenticated.js";
+import { logout } from "../index.js";
+import { openModal } from "../modal/modal.js";
 
 // Modification de l'interface
 if (isAuthenticated) {
@@ -20,16 +22,5 @@ if (isAuthenticated) {
   // Affichage bouton de modification
   const modifierBtn = document.querySelector(".modifier");
   modifierBtn.style.display = "inline-flex";
-  //   modifierBtn.addEventListener("click", createModal);
-}
-
-// Fonction de déconnexion
-function logout() {
-  window.localStorage.removeItem("token");
-  window.localStorage.removeItem("userId");
-
-  document.querySelector(".logoutBtn").removeEventListener("click", logout);
-  //   document.querySelector(".modifier").removeEventListener("click", createModal);
-
-  location.reload();
+  modifierBtn.addEventListener("click", openModal);
 }

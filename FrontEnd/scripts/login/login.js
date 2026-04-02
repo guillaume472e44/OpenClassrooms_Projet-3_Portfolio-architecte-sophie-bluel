@@ -35,14 +35,20 @@ async function login(requestBody) {
       window.location = "./index.html";
     }
   } catch (error) {
-    displayErrorMsg();
+    displayErrorMsg(error);
     console.error(error.message);
   }
 }
 
 // Affichage erreur
-function displayErrorMsg() {
+function displayErrorMsg(error) {
   const errorMsg = document.querySelector(".errorMsg");
-  errorMsg.textContent = "Erreur dans l’identifiant ou le mot de passe";
+
+  if (error.message === "Response status : 401") {
+    errorMsg.textContent = "Erreur dans l’identifiant ou le mot de passe";
+  } else {
+    errorMsg.textContent = error;
+  }
+
   errorMsg.classList.add("active");
 }

@@ -1,6 +1,7 @@
 import { getDatas } from "./API/APImanagement.js";
 import { createWork } from "./actions/createWork.js";
 import { createFilterBtn } from "./actions/createFilterBtn.js";
+import { openModal } from "./modal/modal.js";
 export * from "./edit-mode/editMode.js";
 
 // Ajout des travaux dans la gellerie
@@ -26,4 +27,15 @@ getDatas("categories").then((categoriesDatas) =>
 function populateFilters(categories) {
   const noFilterBtn = { id: 0, name: "Tous" }; // bouton "Tous"
   [noFilterBtn, ...categories].forEach((category) => createFilterBtn(category));
+}
+
+// Fonction de déconnexion
+export function logout() {
+  window.localStorage.removeItem("token");
+  window.localStorage.removeItem("userId");
+
+  document.querySelector(".logoutBtn").removeEventListener("click", logout);
+  document.querySelector(".modifier").removeEventListener("click", openModal);
+
+  location.reload();
 }

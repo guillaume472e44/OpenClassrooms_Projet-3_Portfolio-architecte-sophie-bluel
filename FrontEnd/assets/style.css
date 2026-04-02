@@ -326,13 +326,26 @@ footer nav ul {
 
 /* Affichage message d'erreur en cas de problème API */
 .errorInfo__getData {
-  color: crimson;
   font-size: 1.5rem;
+  font-weight: 600;
   text-align: center;
   padding-block: 16px;
-  background-color: rgba(255, 255, 0, 0.25);
-  border-radius: 99px;
+  background-color: rgba(255, 0, 0, 0.25);
+  border-radius: 8px;
+  margin-block-end: 32px;
+  position: relative;
   display: none;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 48px;
+    height: 48px;
+    transform: translate(100%, -100%);
+    background-image: url(./icons/alert.svg);
+  }
 }
 .errorInfo__getData.active {
   display: block;
@@ -413,27 +426,28 @@ footer nav ul {
 }
 
 .errorMsg {
-  color: crimson;
-  font-weight: 800;
+  font-weight: 600;
   font-size: larger;
-  width: fit-content;
-  margin-block-start: 32px;
-  margin-inline: auto;
-  overflow: hidden;
-  text-align: center;
-  white-space: nowrap;
+  background-color: rgba(220, 20, 60, 0.25);
+  padding-block: 16px;
+  margin-block-start: 16px;
+  border-radius: 8px;
+  position: relative;
+  display: none;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 48px;
+    height: 48px;
+    transform: translate(100%, -100%);
+    background-image: url(./icons/alert.svg);
+  }
 }
 .errorMsg.active {
-  animation: typing 0.2s steps(120, end);
-}
-
-@keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
+  display: block;
 }
 
 /* Edit mode */
@@ -467,4 +481,127 @@ footer nav ul {
 .modifier:hover {
   text-decoration: underline;
   text-underline-offset: 4px;
+}
+
+/* Edit modal */
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+dialog {
+  border: none;
+  padding: 0;
+  background-color: #fff;
+  border-radius: 8px;
+  width: 640px;
+  height: 680px;
+}
+
+.dialog__wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.dialog__header {
+  display: flex;
+  align-items: center;
+  padding-block-start: 24px;
+  padding-inline: 32px;
+}
+
+.dialog__header img {
+  display: flex;
+  pointer-events: none;
+}
+
+.dialog__header button {
+  background: none;
+  cursor: pointer;
+}
+
+.dialog__header__backBtn {
+  display: none;
+}
+
+.dialog__header__closeBtn {
+  margin-inline-start: auto;
+  padding: 6px;
+}
+
+.dialog__section {
+  flex-grow: 1;
+  margin-inline: 108px;
+  border-block-end: 1px solid #b3b3b3;
+}
+
+.dialog__section h3 {
+  font-size: 26px;
+  text-align: center;
+  margin-block-start: 16px;
+  margin-block-end: 40px;
+}
+
+.dialog__footer {
+  padding-block: 40px;
+  text-align: center;
+}
+
+.dialog__footer button {
+  background: var(--mainColor);
+  width: 237px;
+  height: 36px;
+  border-radius: 99px;
+  color: #fff;
+  font-family: Syne, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+
+  &:hover {
+    background: var(--hoverBtn);
+  }
+
+  &.disabled {
+    background-color: #a7a7a7;
+    cursor: not-allowed;
+  }
+}
+
+.deletion-gallery__thumbnails {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  row-gap: 24px;
+  column-gap: 8px;
+  max-height: 400px;
+  overflow-y: auto;
+  position: relative;
+}
+
+.deletion-gallery__thumbnails figure {
+  position: relative;
+}
+
+.deletion-gallery__thumbnails img {
+  display: flex;
+  width: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.delete-button {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 20px;
+  height: 20px;
+  padding: 5px;
+  background-color: #000;
+  border-radius: 4px;
+  cursor: pointer;
+
+  & img {
+    position: relative;
+    transform: translateY(-1px);
+  }
 }
