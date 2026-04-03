@@ -1,4 +1,6 @@
 import { createDeletionGallery } from "../actions/createDeletionGallery.js";
+import { removeDeletionGallery } from "../actions/createDeletionGallery.js";
+import { removeAddPhoto } from "../actions/createAddPhoto.js";
 
 export function openModal() {
   const dialog = document.getElementById("edit-mode");
@@ -18,6 +20,13 @@ function closeModal(e) {
   const closeBtn = document.querySelector(".dialog__header__closeBtn");
 
   document.body.style.overflowY = "auto"; // add scroll
+
+  const deletionGallery = document.querySelector(".deletion-gallery");
+  if (deletionGallery.style.display !== "none") {
+    removeDeletionGallery();
+  } else {
+    removeAddPhoto();
+  }
 
   dialog.removeEventListener("close", closeModal);
 

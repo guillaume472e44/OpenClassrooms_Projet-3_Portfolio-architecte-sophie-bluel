@@ -47,7 +47,7 @@ function displayErrorMsg(error) {
   if (error.message === "Response status : 401") {
     errorMsg.textContent = "Erreur dans l’identifiant ou le mot de passe";
   } else {
-    errorMsg.textContent = error;
+    errorMsg.textContent = error.message;
   }
 
   errorMsg.classList.add("active");

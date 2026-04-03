@@ -87,8 +87,43 @@
               <h3>Galerie photo</h3>
               <div class="deletion-gallery__thumbnails"></div>
             </section>
+            <section class="dialog__section add-photo">
+              <h3>Ajout photo</h3>
+              <form id="add-photo">
+                <div class="add-photo__file">
+                  <img
+                    src="./assets/icons/add-photo.svg"
+                    alt="image placeholder"
+                  />
+                  <label for="inputFile">+ Ajouter une photo</label>
+                  <input type="file" name="inputFile" id="inputFile" required />
+                  <p>jpg, png : 4mo max</p>
+                </div>
+                <div class="add-photo__input-container">
+                  <label for="inputTitle">Titre</label>
+                  <input type="text" id="inputTitle" required />
+                </div>
+                <div class="add-photo__input-container">
+                  <label for="inputCategory">Catégorie</label>
+                  <select name="inputCategory" id="inputCategory"></select>
+                  <img
+                    src="./assets/icons/chevron-down.svg"
+                    alt="chevron down"
+                    class="select-chevron"
+                  />
+                </div>
+              </form>
+            </section>
             <div class="dialog__footer">
-              <button id="add-photo">Ajouter une photo</button>
+              <button id="goto__add-photo">Ajouter une photo</button>
+              <button
+                class="disabled"
+                id="add-photo-Btn"
+                type="submit"
+                form="add-photo"
+              >
+                Valider
+              </button>
             </div>
           </div>
         </dialog>

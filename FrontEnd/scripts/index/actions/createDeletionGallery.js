@@ -1,9 +1,18 @@
+import { createAddPhoto } from "./createAddPhoto.js";
+
 export function createDeletionGallery() {
+  const deletionGallery = document.querySelector(".deletion-gallery");
+  deletionGallery.style.display = "block";
+
   const thumbnails = document.querySelector(".deletion-gallery__thumbnails");
   thumbnails.textContent = "";
 
   const gallery = document.querySelectorAll(".gallery figure");
   gallery.forEach((work) => thumbnails.appendChild(createThumbnail(work)));
+
+  const gotoAddPhoto = document.getElementById("goto__add-photo");
+  gotoAddPhoto.style.display = "inline";
+  gotoAddPhoto.addEventListener("click", handleAddPhotoBtn);
 }
 
 function createThumbnail(work) {
@@ -26,4 +35,21 @@ function createThumbnail(work) {
   figure.appendChild(deleteBtn);
 
   return figure;
+}
+
+function handleAddPhotoBtn() {
+  removeDeletionGallery();
+  createAddPhoto();
+}
+
+export function removeDeletionGallery() {
+  const deleteBtns = document.querySelectorAll(".delete-button");
+  // TODO => remove delete listeners
+
+  const deletionGallery = document.querySelector(".deletion-gallery");
+  deletionGallery.style.display = "none";
+
+  const gotoAddPhoto = document.getElementById("goto__add-photo");
+  gotoAddPhoto.removeEventListener("click", handleAddPhotoBtn);
+  gotoAddPhoto.style.display = "none";
 }
