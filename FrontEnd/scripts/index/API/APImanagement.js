@@ -11,6 +11,25 @@ export async function getDatas(endpoint) {
   }
 }
 
+export async function removeAPIData(id) {
+  try {
+    const response = await fetch(`http://localhost:5678/api/works/${id}`, {
+      method: "DELETE",
+      headers: {
+        Accept: "*/*",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    });
+    if (!response.ok) {
+      throw new Error(`Erreur http, status : ${response.status}`);
+    }
+    return "deleted";
+  } catch (error) {
+    console.error(error);
+    return false;
+  }
+}
+
 // Affichage message d'erreur sur l'interface utilisateur
 function displayAPIError(message, DOMSelector) {
   const errorInfo = document.querySelector(DOMSelector);

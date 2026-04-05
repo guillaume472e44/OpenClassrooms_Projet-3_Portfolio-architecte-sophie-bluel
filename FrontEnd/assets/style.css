@@ -247,9 +247,9 @@ li:hover {
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 12px;
   grid-row-gap: 16px;
-  height: 100%;
 }
 .gallery img {
+  height: 96%;
   width: 100%;
   object-fit: cover;
 }
@@ -580,11 +580,13 @@ dialog {
 
 .deletion-gallery__thumbnails figure {
   position: relative;
+  height: 102px;
 }
 
 .deletion-gallery__thumbnails img {
   display: flex;
   width: 100%;
+  height: 100%;
   object-fit: cover;
   pointer-events: none;
 }
@@ -602,8 +604,26 @@ dialog {
 
   & img {
     position: relative;
-    transform: translateY(-1px);
+    transform: translateY(-0.5px);
   }
+}
+
+.apiInfo {
+  margin-block-start: 48px;
+  padding-block: 8px;
+  display: none;
+
+  & span {
+    font-style: italic;
+  }
+}
+.apiInfo.success {
+  display: block;
+  background-color: rgba(0, 128, 0, 0.256);
+}
+.apiInfo.error {
+  display: block;
+  background-color: rgba(255, 0, 0, 0.25);
 }
 
 /* Ajout Photo */

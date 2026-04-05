@@ -1,4 +1,5 @@
 import { createAddPhoto } from "./createAddPhoto.js";
+import { deleteWork } from "./deleteWork.js";
 
 export function createDeletionGallery() {
   const deletionGallery = document.querySelector(".deletion-gallery");
@@ -32,6 +33,7 @@ function createThumbnail(work) {
   deleteIcon.src = "./assets/icons/trash.svg";
   deleteIcon.alt = "supprimer un élément";
   deleteBtn.appendChild(deleteIcon);
+  deleteBtn.addEventListener("click", deleteWork);
   figure.appendChild(deleteBtn);
 
   return figure;
@@ -48,6 +50,11 @@ export function removeDeletionGallery() {
 
   const deletionGallery = document.querySelector(".deletion-gallery");
   deletionGallery.style.display = "none";
+
+  const apiInfo = document.querySelector(".apiInfo");
+  apiInfo.classList.remove("success");
+  apiInfo.classList.remove("error");
+  apiInfo.textContent = "";
 
   const gotoAddPhoto = document.getElementById("goto__add-photo");
   gotoAddPhoto.removeEventListener("click", handleAddPhotoBtn);
