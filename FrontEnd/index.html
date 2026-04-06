@@ -90,23 +90,38 @@
             </section>
             <section class="dialog__section add-photo">
               <h3>Ajout photo</h3>
-              <form id="add-photo">
+              <form id="add-photo" autocomplete="off">
                 <div class="add-photo__file">
                   <img
                     src="./assets/icons/add-photo.svg"
                     alt="image placeholder"
                   />
                   <label for="inputFile">+ Ajouter une photo</label>
-                  <input type="file" name="inputFile" id="inputFile" required />
+                  <input
+                    type="file"
+                    name="inputFile"
+                    id="inputFile"
+                    accept="image/png, image/jpeg"
+                    required
+                  />
                   <p>jpg, png : 4mo max</p>
                 </div>
                 <div class="add-photo__input-container">
                   <label for="inputTitle">Titre</label>
-                  <input type="text" id="inputTitle" required />
+                  <input
+                    type="text"
+                    id="inputTitle"
+                    name="inputTitle"
+                    required
+                  />
                 </div>
                 <div class="add-photo__input-container">
                   <label for="inputCategory">Catégorie</label>
-                  <select name="inputCategory" id="inputCategory"></select>
+                  <select
+                    name="inputCategory"
+                    id="inputCategory"
+                    required
+                  ></select>
                   <img
                     src="./assets/icons/chevron-down.svg"
                     alt="chevron down"
@@ -114,6 +129,7 @@
                   />
                 </div>
               </form>
+              <p class="formInfo"></p>
             </section>
             <div class="dialog__footer">
               <button id="goto__add-photo">Ajouter une photo</button>

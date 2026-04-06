@@ -665,6 +665,14 @@ dialog {
   margin-block-end: 12px;
 }
 
+.add-photo__file .preview {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  margin-block: 0;
+  object-fit: cover;
+}
+
 .add-photo__input-container {
   display: flex;
   flex-direction: column;
@@ -683,7 +691,7 @@ dialog {
 .add-photo__input-container input,
 .add-photo__input-container select {
   background: #fff;
-  padding: 0;
+  padding-inline: 20px;
   height: 50px;
   font-size: 1.2em;
   border: none;
@@ -702,6 +710,34 @@ dialog {
   right: 24px;
   transform: translateY(-18px);
   pointer-events: none;
+}
+
+.formInfo {
+  padding: 8px 16px;
+  border-radius: 4px;
+  position: relative;
+  display: none;
+}
+
+.formInfo.success {
+  border: 1px solid green;
+  background: rgba(0, 128, 0, 0.256);
+}
+
+.formInfo.error {
+  border: 1px solid red;
+  background: rgba(255, 0, 0, 0.25);
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 48px;
+    height: 48px;
+    transform: translate(125%, -67.5%);
+    background-image: url(./icons/alert.svg);
+  }
 }
 
 /*  */

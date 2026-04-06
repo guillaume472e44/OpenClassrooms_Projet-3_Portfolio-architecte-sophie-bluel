@@ -25,8 +25,8 @@ getDatas("categories").then((categoriesDatas) =>
   populateFilters(categoriesDatas),
 );
 function populateFilters(categories) {
-  const noFilterBtn = { id: 0, name: "Tous" }; // bouton "Tous"
-  [noFilterBtn, ...categories].forEach((category) => createFilterBtn(category));
+  const allWorksBtn = { id: 0, name: "Tous" }; // bouton "Tous"
+  [allWorksBtn, ...categories].forEach((category) => createFilterBtn(category));
 }
 
 // Fonction de déconnexion

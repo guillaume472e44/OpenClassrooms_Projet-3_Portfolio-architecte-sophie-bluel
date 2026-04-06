@@ -30,6 +30,32 @@ export async function removeAPIData(id) {
   }
 }
 
+export async function postData(formData) {
+  // const request = new XMLHttpRequest();
+  // request.open("POST", "http://localhost:5678/api/works");
+  // request.setRequestHeader(
+  //   "Authorization",
+  //   `Bearer ${localStorage.getItem("token")}`,
+  // );
+  // request.send(formData);
+
+  try {
+    const response = await fetch("http://localhost:5678/api/works", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+      body: formData,
+    });
+    if (!response.ok) {
+      throw new Error(`Erreur http, status : ${response.status}`);
+    }
+    return await response.json();
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 // Affichage message d'erreur sur l'interface utilisateur
 function displayAPIError(message, DOMSelector) {
   const errorInfo = document.querySelector(DOMSelector);
