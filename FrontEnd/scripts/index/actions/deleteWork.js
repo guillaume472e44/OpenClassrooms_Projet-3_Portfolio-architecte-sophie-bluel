@@ -1,10 +1,10 @@
-import { removeAPIData } from "../API/APImanagement.js";
+import { removeData } from "../API/APImanagement.js";
 
 export function deleteWork(e) {
   const id = e.target.offsetParent.dataset.id;
   const title = e.target.offsetParent.dataset.title;
 
-  removeAPIData(id).then((response) => {
+  removeData(id).then((response) => {
     const apiInfo = document.querySelector(".apiInfo");
 
     if (response === "deleted") {

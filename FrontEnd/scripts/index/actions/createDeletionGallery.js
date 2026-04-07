@@ -46,14 +46,13 @@ function handleAddPhotoBtn() {
 
 export function removeDeletionGallery() {
   const deleteBtns = document.querySelectorAll(".delete-button");
-  // TODO => remove delete listeners
+  deleteBtns.forEach((btn) => btn.removeEventListener("click", deleteWork));
 
   const deletionGallery = document.querySelector(".deletion-gallery");
   deletionGallery.style.display = "none";
 
   const apiInfo = document.querySelector(".apiInfo");
-  apiInfo.classList.remove("success");
-  apiInfo.classList.remove("error");
+  apiInfo.classList.remove("success", "error");
   apiInfo.textContent = "";
 
   const gotoAddPhoto = document.getElementById("goto__add-photo");

@@ -4,14 +4,14 @@ export async function getDatas(endpoint) {
     if (!response.ok) {
       throw new Error(`Statut de réponse : ${response.status}`);
     }
-    return await response.json();
+    return response.json();
   } catch (error) {
     console.error(error);
     displayAPIError(error.message, ".errorInfo__getData");
   }
 }
 
-export async function removeAPIData(id) {
+export async function removeData(id) {
   try {
     const response = await fetch(`http://localhost:5678/api/works/${id}`, {
       method: "DELETE",
@@ -31,14 +31,6 @@ export async function removeAPIData(id) {
 }
 
 export async function postData(formData) {
-  // const request = new XMLHttpRequest();
-  // request.open("POST", "http://localhost:5678/api/works");
-  // request.setRequestHeader(
-  //   "Authorization",
-  //   `Bearer ${localStorage.getItem("token")}`,
-  // );
-  // request.send(formData);
-
   try {
     const response = await fetch("http://localhost:5678/api/works", {
       method: "POST",
@@ -50,7 +42,7 @@ export async function postData(formData) {
     if (!response.ok) {
       throw new Error(`Erreur http, status : ${response.status}`);
     }
-    return await response.json();
+    return response.json();
   } catch (error) {
     console.error(error);
   }
