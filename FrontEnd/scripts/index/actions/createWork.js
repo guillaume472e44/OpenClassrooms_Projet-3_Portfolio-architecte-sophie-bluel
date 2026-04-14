@@ -6,6 +6,8 @@ export function createWork(work) {
   const figcaption = document.createElement("figcaption");
 
   img.src = work.imageUrl;
+  img.width = 305;
+  img.height = 407;
   img.alt = work.title;
 
   figcaption.textContent = work.title;

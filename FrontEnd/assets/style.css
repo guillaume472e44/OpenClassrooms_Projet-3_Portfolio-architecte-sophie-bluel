@@ -140,7 +140,9 @@ a {
   --mainColor: #1d6154;
   --hoverBtn: #0e2f28;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 body {
   background-color: var(--bgColor);
   display: flex;
@@ -158,6 +160,7 @@ main {
 header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
   margin-block: 48px;
 }
@@ -175,6 +178,9 @@ h1 > span {
   font-family: "Work Sans";
   font-size: 10px;
   letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin-top: 4px;
 }
 
 h2 {
@@ -205,6 +211,12 @@ li:hover {
   width: 64px;
   text-align: center;
   display: none;
+}
+
+.logo-insta {
+  width: 19.35px;
+  height: 19.35px;
+  display: flex;
 }
 
 #introduction {
@@ -326,8 +338,8 @@ footer nav ul {
 
 /* Affichage message d'erreur en cas de problème API */
 .errorInfo__getData {
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 1.25rem;
+  font-weight: 400;
   text-align: center;
   padding-block: 16px;
   background-color: rgba(255, 0, 0, 0.25);
@@ -426,8 +438,8 @@ footer nav ul {
 }
 
 .errorMsg {
-  font-weight: 600;
-  font-size: larger;
+  font-weight: 400;
+  font-size: 1rem;
   background-color: rgba(220, 20, 60, 0.25);
   padding-block: 16px;
   margin-block-start: 16px;

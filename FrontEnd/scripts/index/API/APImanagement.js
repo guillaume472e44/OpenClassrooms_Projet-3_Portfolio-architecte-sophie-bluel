@@ -2,7 +2,9 @@ export async function getDatas(endpoint) {
   try {
     const response = await fetch(`http://localhost:5678/api/${endpoint}`);
     if (!response.ok) {
-      throw new Error(`Statut de réponse : ${response.status}`);
+      throw new Error(
+        `Une erreur est survenue, veuillez contacter le service technique (Statut de réponse : ${response.status})`,
+      );
     }
     return response.json();
   } catch (error) {

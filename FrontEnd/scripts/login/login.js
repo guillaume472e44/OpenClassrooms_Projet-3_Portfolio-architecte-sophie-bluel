@@ -23,7 +23,9 @@ async function login(requestBody) {
       body: requestBody,
     });
     if (!response.ok) {
-      throw new Error(`Response status : ${response.status}`);
+      throw new Error(
+        `Une erreur est survenue, veuillez contacter le service technique (status : ${response.status})`,
+      );
     } else {
       const loginResponse = await response.json();
 
@@ -44,7 +46,7 @@ async function login(requestBody) {
 function displayErrorMsg(error) {
   const errorMsg = document.querySelector(".errorMsg");
 
-  if (error.message === "Response status : 401") {
+  if (error.message.endsWith("401)")) {
     errorMsg.textContent = "Erreur dans l’identifiant ou le mot de passe";
   } else {
     errorMsg.textContent = error.message;

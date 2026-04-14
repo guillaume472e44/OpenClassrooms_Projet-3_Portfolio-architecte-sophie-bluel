@@ -39,3 +39,19 @@ export function logout() {
 
   location.reload();
 }
+
+// permet de se déplacer à la section contact depuis la page login
+// les images étant chargées après l'affichage de la page, un petit délai est nécessaire
+// pour calculer correctement la position
+window.addEventListener("load", () => {
+  // vérifie si'l'URL contient une ancre (ex: #contact)
+  if (window.location.hash) {
+    const sectionTarget = document.querySelector(window.location.hash);
+    if (sectionTarget) {
+      setTimeout(() => {
+        sectionTarget.scrollIntoView();
+        sectionTarget.focus();
+      }, 200);
+    }
+  }
+});
